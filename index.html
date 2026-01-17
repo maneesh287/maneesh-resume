@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch. Maneesh Kumar - B.Pharmacy Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #f093fb;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+            border-left-color: #f5576c;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 5px solid #f093fb;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .course-name {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .year-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 4px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+            border-left-width: 8px;
+        }
+
+        .hobbies-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hobby-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .hobby-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .languages {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .language-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .section {
+                padding: 25px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img floating">MK</div>
+            <h1>CH. MANEESH KUMAR</h1>
+            <div class="subtitle">B.Pharmacy Student</div>
+            <div class="contact-info">
+                <a href="tel:+919392594570" class="contact-item contact-link">📱 9392594570</a>
+                <a href="mailto:maneeshabhi14@gmail.com" class="contact-item contact-link">✉️ maneeshabhi14@gmail.com</a>
+                <a href="https://maps.app.goo.gl/yzYayJF2LSPs8YAXA" target="_blank" class="contact-item contact-link">📍 Buchireddy Palem, Nellore, AP</a>
+            </div>
+        </header>
+
+        <div class="section">
+            <div class="section-title">👤 Profile</div>
+            <p class="profile-text">
+                I am a dedicated B.Pharmacy student with strong knowledge in pharmacology and pharmaceutical practices. I bring quick learning ability, responsibility and a positive, adaptable mindset. Known for good communication skills and attention to detail, I handle tasks with accuracy and enjoy learning new concepts and taking on challenges confidently. I am eager to begin my professional journey through campus placements and contribute effectively to the organization.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎓 Education</div>
+            
+            <div class="education-item">
+                <div class="edu-header">
+                    <div class="course-name">B.PHARMACY</div>
+                    <div class="year-badge">2022 - PRESENT</div>
+                </div>
+                <div>Narayana Pharmacy College, Nellore, Andhra Pradesh, India</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-header">
+                    <div class="course-name">INTERMEDIATE (BI.P.C)</div>
+                    <div class="year-badge">2020 - 2022</div>
+                </div>
+                <div>Krishna Chaitanya Junior College, Buchi, Nellore, Andhra Pradesh, India</div>
+            </div>
+
+            <div class="education-item">
+                <div class="edu-header">
+                    <div class="course-name">SSC (10th)</div>
+                    <div class="year-badge">2019 - 2020</div>
+                </div>
+                <div>Sri Chaitanya High School, Buchi, Nellore, Andhra Pradesh, India</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">💼 Skills</div>
+            <div class="skills-grid">
+                <div class="skill-item">MS Word and MS Excel</div>
+                <div class="skill-item">Time Management & Organizational Skills</div>
+                <div class="skill-item">Effective Verbal & Written Communication</div>
+                <div class="skill-item">Scientific Writing & Literature Review</div>
+                <div class="skill-item">Presentation & Analytical Skills</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🏆 Experience & Achievements</div>
+            
+            <div class="achievement-item">
+                ✓ Completed 1-month internship at <strong>Porus Laboratories Pvt Ltd, Visakhapatnam</strong>
+            </div>
+
+            <div class="achievement-item">
+                ✓ Completed <strong>Scientific Writing in Health Research</strong> course offered by ICMR National Institute of Epidemiology via SWAYAM with <strong>96%</strong> and awarded <strong>4 credit points</strong>
+            </div>
+
+            <div class="achievement-item">
+                ✓ Presented an oral presentation on <strong>AI Driven Innovations in Pharmaceuticals</strong> at National Conference on Advances in AI-Driven Drug Discovery and Development (AIDDD-2025)
+            </div>
+
+            <div class="achievement-item">
+                ✓ Participated in <strong>National Science Day Expo 2025</strong> with presentation on herbal formulation
+            </div>
+
+            <div class="achievement-item">
+                ✓ Published a review article in <strong>WJPR Publications</strong> on "Pharmacological & Therapeutic Profile of Hibiscus Sabdariffa .L"
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🗣️ Languages</div>
+            <div class="languages">
+                <div class="language-badge">English</div>
+                <div class="language-badge">Telugu</div>
+                <div class="language-badge">Hindi</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎯 Hobbies</div>
+            <div class="hobbies-container">
+                <div class="hobby-card">
+                    <div class="hobby-icon">📚</div>
+                    <div>Reading</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">✈️</div>
+                    <div>Travelling</div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">💡</div>
+                    <div>Learning New Skills</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">📋 Personal Details</div>
+            <div class="skills-grid">
+                <div class="skill-item"><strong>Full Name:</strong> Chemudugunta Maneesh Kumar</div>
+                <div class="skill-item"><strong>Nationality:</strong> Indian</div>
+                <div class="skill-item"><strong>Date of Birth:</strong> [Your DOB]</div>
+                <div class="skill-item"><strong>Gender:</strong> Male</div>
+            </div>
+            <div class="achievement-item" style="margin-top: 20px;">
+                <strong>Full Address:</strong><br>
+                5-75, 3rd Building, Ambedkar Nagar<br>
+                Buchireddipalem Subdistrict<br>
+                Sri Potti Sriramulu Nellore District<br>
+                Andhra Pradesh, India - 524305
+            </div>
+        </div>
+
+        <footer>
+            <p>📍 Preferred Job Location: On-site</p>
+            <p style="margin-top: 20px; font-style: italic;">
+                "I hereby declare that the above information is true and correct to the best of my knowledge and belief."
+            </p>
+            <p style="margin-top: 10px;"><strong>Place: Nellore</strong></p>
+        </footer>
+    </div>
+</body>
+</html>
