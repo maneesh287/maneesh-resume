@@ -178,7 +178,6 @@
         .achievement-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            padding-right: 60px;
             margin: 15px 0;
             border-radius: 12px;
             border-left: 4px solid #4facfe;
@@ -200,12 +199,6 @@
             transform: translateY(-50%);
             font-size: 1.5em;
             opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .achievement-item:hover .certificate-icon {
-            opacity: 1;
-            transform: translateY(-50%) scale(1.2);
         }
 
         .hobbies-container {
@@ -266,16 +259,18 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.95);
+            background-color: rgba(0,0,0,0.9);
             animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
             position: relative;
-            margin: 2% auto;
+            margin: auto;
             padding: 20px;
             width: 90%;
             max-width: 1000px;
+            top: 50%;
+            transform: translateY(-50%);
             animation: zoomIn 0.3s ease;
         }
 
@@ -287,25 +282,18 @@
 
         .close {
             position: absolute;
-            top: -40px;
-            right: 0px;
+            top: -10px;
+            right: 10px;
             color: #fff;
-            font-size: 40px;
+            font-size: 50px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 1001;
-            background: rgba(0,0,0,0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .close:hover {
-            background: rgba(240, 147, 251, 0.8);
+            color: #f093fb;
             transform: rotate(90deg);
         }
 
@@ -315,8 +303,8 @@
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.7); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from { transform: translateY(-50%) scale(0.7); }
+            to { transform: translateY(-50%) scale(1); }
         }
 
         @keyframes fadeInDown {
@@ -370,13 +358,6 @@
             opacity: 0.9;
         }
 
-        .hint-text {
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -391,15 +372,9 @@
             .modal-content {
                 width: 95%;
                 padding: 10px;
-                margin: 10% auto;
             }
             .close {
-                font-size: 30px;
-                width: 35px;
-                height: 35px;
-            }
-            .achievement-item {
-                padding-right: 50px;
+                font-size: 35px;
             }
         }
     </style>
@@ -465,7 +440,7 @@
 
         <div class="section">
             <div class="section-title">🏆 Experience & Achievements</div>
-            <p class="hint-text">💡 Click on any achievement to view certificate</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 20px;">💡 Click on any achievement to view certificate</p>
             
             <div class="achievement-item" onclick="openModal('cert1')">
                 <span class="certificate-icon">📜</span>
@@ -528,7 +503,7 @@
                 <div class="skill-item"><strong>Date of Birth:</strong> 10th October 2004</div>
                 <div class="skill-item"><strong>Gender:</strong> Male</div>
             </div>
-            <div class="achievement-item" style="margin-top: 20px; cursor: default;">
+            <div class="achievement-item" style="margin-top: 20px;">
                 <strong>Full Address:</strong><br>
                 5-75, 3rd Building, Ambedkar Nagar<br>
                 Buchireddipalem Subdistrict<br>
@@ -555,37 +530,5 @@
     </div>
 
     <script>
-        // YOU NEED TO REPLACE THESE WITH YOUR ACTUAL CERTIFICATE IMAGE URLS
-        // Upload your certificates to GitHub in your repository, then get the URLs
         const certificates = {
-            cert1: 'YOUR_CERTIFICATE_1_URL_HERE',
-            cert2: 'YOUR_CERTIFICATE_2_URL_HERE',
-            cert3: 'YOUR_CERTIFICATE_3_URL_HERE',
-            cert4: 'YOUR_CERTIFICATE_4_URL_HERE',
-            cert5: 'YOUR_CERTIFICATE_5_URL_HERE'
-        };
-
-        function openModal(certId) {
-            const modal = document.getElementById('certificateModal');
-            const modalImg = document.getElementById('modalImage');
-            
-            modalImg.src = certificates[certId];
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('certificateModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
-</body>
-</html>
+            cert1: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAJJAlgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKK
