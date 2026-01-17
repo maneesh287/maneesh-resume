@@ -467,27 +467,27 @@
             <div class="section-title">🏆 Experience & Achievements</div>
             <p class="hint-text">💡 Click on any achievement to view certificate</p>
             
-            <div class="achievement-item" onclick="openModal(cert1.jpeg)">
+            <div class="achievement-item" onclick="openCertificate('cert1')">
                 <span class="certificate-icon">📜</span>
                 ✓ Completed 1-month internship at <strong>Porus Laboratories Pvt Ltd, Visakhapatnam</strong>
             </div>
 
-            <div class="achievement-item" onclick="openModal(cert2.jpeg)">
+            <div class="achievement-item" onclick="openCertificate('cert2')">
                 <span class="certificate-icon">📜</span>
                 ✓ Completed <strong>Scientific Writing in Health Research</strong> course offered by ICMR National Institute of Epidemiology via SWAYAM with <strong>96%</strong> and awarded <strong>4 credit points</strong>
             </div>
 
-            <div class="achievement-item" onclick="openModal(cert3.jpeg)">
+            <div class="achievement-item" onclick="openCertificate('cert3')">
                 <span class="certificate-icon">📜</span>
                 ✓ Presented an oral presentation on <strong>AI Driven Innovations in Pharmaceuticals</strong> at National Conference on Advances in AI-Driven Drug Discovery and Development (AIDDD-2025)
             </div>
 
-            <div class="achievement-item" onclick="openModal(cert4.jpeg)">
+            <div class="achievement-item" onclick="openCertificate('cert4')">
                 <span class="certificate-icon">📜</span>
                 ✓ Participated in <strong>National Science Day Expo 2025</strong> with presentation on herbal formulation
             </div>
 
-            <div class="achievement-item" onclick="openModal(cert5.jpeg)">
+            <div class="achievement-item" onclick="openCertificate('cert5')">
                 <span class="certificate-icon">📜</span>
                 ✓ Published a review article in <strong>WJPR Publications</strong> on "Pharmacological & Therapeutic Profile of Hibiscus Sabdariffa .L"
             </div>
@@ -546,40 +546,40 @@
         </footer>
     </div>
 
-    <div id="certificateModal" class="modal" onclick="closeModal()">
+    <div id="certificateModal" class="modal" onclick="closeCertificate()">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Certificate">
+            <span class="close" onclick="closeCertificate()">&times;</span>
+            <img id="certImage" src="" alt="Certificate">
         </div>
     </div>
 
     <script>
-        const certificates = {
-            cert1: 'https://maneesh287.github.io/maneesh-resume/cert1.jpeg',
-            cert2: 'https://maneesh287.github.io/maneesh-resume/cert2.jpeg',
-            cert3: 'https://maneesh287.github.io/maneesh-resume/cert3.jpeg',
-            cert4: 'https://maneesh287.github.io/maneesh-resume/cert4.jpeg',
-            cert5: 'https://maneesh287.github.io/maneesh-resume/cert5.jpeg'
-        };
-
-        function openModal(certId) {
-            const modal = document.getElementById('certificateModal');
-            const modalImg = document.getElementById('modalImage');
+        function openCertificate(certId) {
+            var certUrls = {
+                'cert1': 'https://maneesh287.github.io/maneesh-resume/cert1.jpeg',
+                'cert2': 'https://maneesh287.github.io/maneesh-resume/cert2.jpeg',
+                'cert3': 'https://maneesh287.github.io/maneesh-resume/cert3.jpeg',
+                'cert4': 'https://maneesh287.github.io/maneesh-resume/cert4.jpeg',
+                'cert5': 'https://maneesh287.github.io/maneesh-resume/cert5.jpeg'
+            };
             
-            modalImg.src = certificates[certId];
+            var modal = document.getElementById('certificateModal');
+            var img = document.getElementById('certImage');
+            
+            img.src = certUrls[certId];
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('certificateModal');
+        function closeCertificate() {
+            var modal = document.getElementById('certificateModal');
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCertificate();
             }
         });
     </script>
