@@ -370,6 +370,25 @@
             opacity: 0.9;
         }
 
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(240, 147, 251, 0.6);
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
         .hint-text {
             font-size: 0.9em;
             opacity: 0.8;
@@ -413,6 +432,7 @@
             <div class="contact-info">
                 <a href="tel:+919392594570" class="contact-item contact-link">📱 9392594570</a>
                 <a href="mailto:maneeshkumarchemudugunta@gmail.com" class="contact-item contact-link">✉️ maneeshkumarchemudugunta@gmail.com</a>
+                <a href="https://www.linkedin.com/in/maneesh-kumar-chemudugunta-2a742a39a" target="_blank" class="contact-item contact-link">💼 LinkedIn</a>
                 <a href="https://maps.app.goo.gl/yzYayJF2LSPs8YAXA" target="_blank" class="contact-item contact-link">📍 Buchireddy Palem, Nellore, AP</a>
             </div>
         </header>
@@ -538,7 +558,10 @@
         </div>
 
         <footer>
-            <p>📍 Preferred Job Location: On-site</p>
+            <a href="https://maneesh287.github.io/maneesh-resume/Maneesh_Kumar_Resume.pdf" download="Maneesh_Kumar_Resume.pdf" class="download-btn">
+                📥 Download Resume as PDF
+            </a>
+            <p style="margin-top: 30px;">📍 Preferred Job Location: On-site</p>
             <p style="margin-top: 20px; font-style: italic;">
                 "I hereby declare that the above information is true and correct to the best of my knowledge and belief."
             </p>
